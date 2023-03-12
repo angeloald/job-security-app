@@ -1,7 +1,7 @@
 .main {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
@@ -97,7 +97,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -125,7 +125,7 @@
 
 .thirteen::before,
 .thirteen::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
 }
@@ -275,4 +275,60 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 900px;
+  padding-top: 20px;
+}
+
+.apiForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+}
+
+.pastResumes {
+  margin-top: 150px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgb(241, 243, 255);
+  border-radius: 10px;
+  margin-left: 80px;
+  min-height: 900px;
+  min-width: 700px;
+  padding: 0px 30px 30px 30px;
+}
+
+.experience {
+  color: black;
+}
+
+.labels {
+  color: rgb(56, 56, 56);
+  font-size: 1.8em;
+  border-bottom: 1px solid black;
+  margin-bottom: 8px;
+}
+
+.submitButton {
+}
+
+.personalInfo {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-between;
+  max-width: 280px;
+}
+
+.text {
+  padding-left: 20px;
 }
