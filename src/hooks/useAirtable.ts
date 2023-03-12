@@ -1,5 +1,4 @@
-// requiring this since it seems to be broken when building with vercel
-const Airtable = require("Airtable");
+import Airtable from "airtable";
 import useSWR from "swr";
 
 export const useAirtable = (
