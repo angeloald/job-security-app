@@ -30,6 +30,16 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.sidebar}>
           <div className={styles.apiForm}>
+            <div>
+              <p>Instructions</p>
+              <p>
+                1. Copy this template -
+                https://airtable.com/shrqGGJxmNJaqN3oS/tbl98mpJWHLe8P5gc/viwCjlPQnN1LZB9kU.
+                and fill it in with your information. 2. Get your Airtable API
+                key and base id from Airtable Developer Hub -
+                https://airtable.com/create/tokens.
+              </p>
+            </div>
             <Input
               type="text"
               placeholder="Enter Airtable API KEY"
