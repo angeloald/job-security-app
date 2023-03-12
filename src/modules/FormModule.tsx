@@ -3,8 +3,11 @@ import { Button, Checkbox, Input, Form } from "react-daisyui";
 import { useState } from "react";
 import { RawData } from "@/hooks/useAirtable";
 import { saveAs } from "file-saver";
+import { useSetAtom } from "jotai";
+import { savedFileAtomsPersist } from "@/hooks/useLocalStorage";
 
 export const FormModule = ({ data }: { data: RawData }) => {
+  const setFileAtoms = useSetAtom(savedFileAtomsPersist);
   const [name, setName] = useState(data?.rawProfile.name);
   const [email, setEmail] = useState(data?.rawProfile.email);
   const [tools, setTools] = useState<{ tool: string; checked: boolean }[]>(
@@ -176,7 +179,10 @@ export const FormModule = ({ data }: { data: RawData }) => {
       type: "application/json",
     });
 
-    saveAs(file, jsonFileName.split(".json")[0] + ".json");
+    const filename = jsonFileName.split(".json")[0] + ".json";
+    const date = new Date();
+    saveAs(file, filename);
+    setFileAtoms({ ...resumeJSON, filename, date: date.toLocaleDateString() });
   };
 
   return (

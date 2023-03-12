@@ -3,18 +3,20 @@ import styles from "@/styles/Home.module.css";
 import { Button, Checkbox, Input, Swap, Table } from "react-daisyui";
 import { useAirtable } from "@/hooks/useAirtable";
 import { FormModule } from "@/modules/FormModule";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useAtom, useAtomValue } from "jotai";
+import {
+  apiKeyAtomPersist,
+  baseIdAtomPersist,
+  savedFileAtomsPersist,
+} from "@/hooks/useLocalStorage";
 
 export default function Home() {
-  const [isFetching, setIsFetching] = useState(true);
-  const [baseId, setBaseId] = useState("app9vXnmaVThM60pi");
-  const [apiKey, setApiKey] = useState(
-    "patfnwnHmUX1Iv9Df.484ca78297f79a54a0eb2560b2732aedcbb2ffe295a73f694cb7758d41a49899"
-  );
+  const [isFetching, setIsFetching] = useState(false);
+  const [apiKey, setApiAtom] = useAtom(apiKeyAtomPersist);
+  const [baseId, setBaseIdAtom] = useAtom(baseIdAtomPersist);
+  const savedFiles = useAtomValue(savedFileAtomsPersist);
   const { data, isLoading } = useAirtable(isFetching, baseId, apiKey);
-
-  useEffect(() => {}, [data]);
-
   if (isLoading) return null;
 
   return (
@@ -33,14 +35,14 @@ export default function Home() {
               placeholder="Enter Airtable API KEY"
               color="info"
               value={apiKey}
-              onChange={(e) => setApiKey(e.target.value)}
+              onChange={(e) => setApiAtom(e.target.value)}
             />
             <Input
               type="text"
               placeholder="Enter Airtable Table ID"
               color="info"
               value={baseId}
-              onChange={(e) => setBaseId(e.target.value)}
+              onChange={(e) => setBaseIdAtom(e.target.value)}
             />
             <Button variant="outline" onClick={() => setIsFetching(true)}>
               Submit
@@ -54,21 +56,19 @@ export default function Home() {
                 <span>date</span>
               </Table.Head>
               <Table.Body>
-                <Table.Row>
-                  <span>1</span>
-                  <span>google_hire</span>
-                  <span>2023.01.04</span>
-                </Table.Row>
-                <Table.Row>
-                  <span>2</span>
-                  <span>post-grad-amazon</span>
-                  <span>2023.01.04</span>
-                </Table.Row>
+                {savedFiles &&
+                  savedFiles?.map((file, idx) => (
+                    <Table.Row key={idx}>
+                      <span>{idx}</span>
+                      <span>{file.filename}</span>
+                      <span>{file.date}</span>
+                    </Table.Row>
+                  ))}
               </Table.Body>
             </Table>
           </div>
         </div>
-        <FormModule data={data} />
+        {data && <FormModule data={data} />}
       </main>
     </>
   );
