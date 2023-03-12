@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Button } from "react-daisyui";
+import { Button, Checkbox, Form, Input, Swap, Table } from "react-daisyui";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +16,90 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Button variant="outline">Test Button</Button>
+        <div className={styles.sidebar}>
+          <div className={styles.apiForm}>
+            <Input
+              type="text"
+              placeholder="Enter Airtable API KEY"
+              color="info"
+            />
+            <Input
+              type="text"
+              placeholder="Enter Airtable Table ID"
+              color="info"
+            />
+            <Button variant="outline">Submit</Button>
+          </div>
+          <div className={styles.pastResumes}>
+            <Table>
+              <Table.Head>
+                <span />
+                <span>Past Resumes</span>
+                <span>date</span>
+              </Table.Head>
+              <Table.Body>
+                <Table.Row>
+                  <span>1</span>
+                  <span>google_hire</span>
+                  <span>2023.01.04</span>
+                </Table.Row>
+                <Table.Row>
+                  <span>2</span>
+                  <span>post-grad-amazon</span>
+                  <span>2023.01.04</span>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+          </div>
+        </div>
+        <div className={styles.form}>
+          <div className={styles.personalInfo}>
+            <p className={styles.labels}>Personal Information</p>
+            <Input placeholder="Name" color="ghost" />
+            <Input placeholder="Position" color="ghost" />
+          </div>
+          <div className={styles.experience}>
+            <p className={styles.labels}>EXPERIENCE</p>
+            <Form className={styles.text}>
+              <p>GOOGLE</p>
+              <Form.Label title="Reduced dev lead time by 3 days by creating faster test infrastructure.">
+                <Checkbox defaultChecked />
+              </Form.Label>
+              <Form.Label title="Reduced dev lead time by 3 days by creating faster test infrastructure.">
+                <Checkbox defaultChecked />
+              </Form.Label>
+              <p>MS</p>
+              <Form.Label title="Reduced dev lead time by 3 days by creating faster test infrastructure.">
+                <Checkbox defaultChecked />
+              </Form.Label>
+              <Form.Label title="Reduced dev lead time by 3 days by creating faster test infrastructure.">
+                <Checkbox defaultChecked />
+              </Form.Label>
+            </Form>
+            <p className={styles.labels}>SKILLS</p>
+            <Form className={styles.text}>
+              <Form.Label title="TypeScript">
+                <Checkbox defaultChecked />
+              </Form.Label>
+              <Form.Label title="Javascript">
+                <Checkbox defaultChecked />
+              </Form.Label>
+            </Form>
+            <p className={styles.labels}>PROJECTS</p>
+            <Form className={styles.text}>
+              <Form.Label title="MIT">
+                <Checkbox defaultChecked />
+              </Form.Label>
+              <Form.Label title="Javascript">
+                <Checkbox defaultChecked />
+              </Form.Label>
+            </Form>
+          </div>
+          <div className={styles.submitButton}>
+            <Input placeholder="Enter Filename" color="ghost" />
+            <Button>Submit</Button>
+          </div>
+        </div>
       </main>
     </>
   );
