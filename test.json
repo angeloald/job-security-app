@@ -1,0 +1,72 @@
+{
+  "education": [
+    {
+      "area": "Computer Science",
+      "studyType": "BS",
+      "startDate": "2021-06-01",
+      "institution": "Paw University",
+      "endDate": "2023-03-01"
+    }
+  ],
+  "work": {
+    "Cat Corp": {
+      "website": "",
+      "startDate": "11/2/2022",
+      "endDate": "Present",
+      "position": "Frontend Engineer",
+      "company": "Cat Corp",
+      "highlights": [
+        "Developed easier data abstractions by combining Apollo (networking) with Zustand (state management) into an internal data library.",
+        "Reduced developer lead time by sharding test runners and making them complete in 3 minutes instead of 6 minutes.",
+        "Created a static code analyzer to find code that has a high probability of exposing personal identifiable information.",
+        "Created frontend documentation that led to better code quality. Created ESLint rules to force developers to comply with established codebase practices.",
+        "Reduced overall oncall engineer burden and burnout by creating a Slack ticketing system for issue delegation."
+      ]
+    },
+    "Meow Labs": {
+      "website": "",
+      "startDate": "6/15/2022",
+      "endDate": "10/29/2022",
+      "position": "Software Engineer Intern",
+      "company": "Meow Labs",
+      "highlights": [
+        "Sped up local development and testing through a codemod that adds support to dynamic Storybook imports.",
+        "Created a codemod to transform Storybook stories into unit tests.",
+        "Migrated legacy React Native native dependencies into more stable Expo plugins leading to easier breaking releases."
+      ]
+    }
+  },
+  "skills": [
+    {
+      "keywords": ["React", " React Native", " JavaScript", " TypeScript"],
+      "name": "Tools"
+    },
+    {
+      "keywords": [
+        "Web development",
+        " Automated Testing",
+        " App Profiling",
+        " Monitoring"
+      ],
+      "name": "Skills"
+    }
+  ],
+  "projects": [
+    {
+      "url": "github.com/nextjs",
+      "keywords": [null],
+      "name": "Cat Express Shop",
+      "description": "Created a headless e-commerce store with Next.js and Sanity."
+    }
+  ],
+  "awards": [{ "title": "", "date": "", "awarder": "", "summary": "" }],
+  "sections": [
+    "templates",
+    "profile",
+    "work",
+    "skills",
+    "projects",
+    "awards",
+    "education"
+  ]
+}

@@ -1,12 +1,22 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Button, Checkbox, Form, Input, Swap, Table } from "react-daisyui";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Button, Checkbox, Input, Swap, Table } from "react-daisyui";
+import { useAirtable } from "@/hooks/useAirtable";
+import { FormModule } from "@/modules/FormModule";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [isFetching, setIsFetching] = useState(true);
+  const [baseId, setBaseId] = useState("app9vXnmaVThM60pi");
+  const [apiKey, setApiKey] = useState(
+    "patfnwnHmUX1Iv9Df.484ca78297f79a54a0eb2560b2732aedcbb2ffe295a73f694cb7758d41a49899"
+  );
+  const { data, isLoading } = useAirtable(isFetching, baseId, apiKey);
+
+  useEffect(() => {}, [data]);
+
+  if (isLoading) return null;
+
   return (
     <>
       <Head>
@@ -22,13 +32,19 @@ export default function Home() {
               type="text"
               placeholder="Enter Airtable API KEY"
               color="info"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
             />
             <Input
               type="text"
               placeholder="Enter Airtable Table ID"
               color="info"
+              value={baseId}
+              onChange={(e) => setBaseId(e.target.value)}
             />
-            <Button variant="outline">Submit</Button>
+            <Button variant="outline" onClick={() => setIsFetching(true)}>
+              Submit
+            </Button>
           </div>
           <div className={styles.pastResumes}>
             <Table>
@@ -52,54 +68,7 @@ export default function Home() {
             </Table>
           </div>
         </div>
-        <div className={styles.form}>
-          <div className={styles.personalInfo}>
-            <p className={styles.labels}>Personal Information</p>
-            <Input placeholder="Name" color="ghost" />
-            <Input placeholder="Position" color="ghost" />
-          </div>
-          <div className={styles.experience}>
-            <p className={styles.labels}>EXPERIENCE</p>
-            <Form className={styles.text}>
-              <p>GOOGLE</p>
-              <Form.Label title="Reduced dev lead time by 3 days by creating faster test infrastructure.">
-                <Checkbox defaultChecked />
-              </Form.Label>
-              <Form.Label title="Reduced dev lead time by 3 days by creating faster test infrastructure.">
-                <Checkbox defaultChecked />
-              </Form.Label>
-              <p>MS</p>
-              <Form.Label title="Reduced dev lead time by 3 days by creating faster test infrastructure.">
-                <Checkbox defaultChecked />
-              </Form.Label>
-              <Form.Label title="Reduced dev lead time by 3 days by creating faster test infrastructure.">
-                <Checkbox defaultChecked />
-              </Form.Label>
-            </Form>
-            <p className={styles.labels}>SKILLS</p>
-            <Form className={styles.text}>
-              <Form.Label title="TypeScript">
-                <Checkbox defaultChecked />
-              </Form.Label>
-              <Form.Label title="Javascript">
-                <Checkbox defaultChecked />
-              </Form.Label>
-            </Form>
-            <p className={styles.labels}>PROJECTS</p>
-            <Form className={styles.text}>
-              <Form.Label title="MIT">
-                <Checkbox defaultChecked />
-              </Form.Label>
-              <Form.Label title="Javascript">
-                <Checkbox defaultChecked />
-              </Form.Label>
-            </Form>
-          </div>
-          <div className={styles.submitButton}>
-            <Input placeholder="Enter Filename" color="ghost" />
-            <Button>Submit</Button>
-          </div>
-        </div>
+        <FormModule data={data} />
       </main>
     </>
   );

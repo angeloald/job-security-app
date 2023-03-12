@@ -1,0 +1,86 @@
+{
+  "selectedTemplate": 1,
+  "headings": {
+    "work": "Professional Experience",
+    "skills": "Tools and Skills",
+    "awards": "",
+    "education": "Education",
+    "projects": "Projects"
+  },
+  "basics": {
+    "name": "Angelo Aldecoa",
+    "email": "angeloaldecoa@gmail.com",
+    "location": {
+      "address": "Vancouver, BC"
+    }
+  },
+  "education": [
+    {
+      "area": "Computer Systems Technology",
+      "studyType": "Diploma",
+      "startDate": "Sep 2021",
+      "institution": "BCIT",
+      "endDate": "Jun 2023"
+    }
+  ],
+  "work": [
+    {
+      "website": "",
+      "highlights": [
+        "Working closely with the design team, I helped develop engaging web experiences and integrated digital marketing tools to promote the Cat NFT project.",
+        "Worked on Cat Azure, a student project created alongside a team of six, contributing mainly to the frontend and API development of the application and hosting the database on a cloud platform.",
+        "I worked on a solution to build and customize web forms using a schema-based approach, including a standard for exchanging electronic health records (FHIR). "
+      ],
+      "startDate": "6/01/2021",
+      "endDate": "Present",
+      "position": "Frontend Engineer",
+      "company": "Cat Corp"
+    },
+    {
+      "highlights": [
+        "Mobile app domain lead responsible for deep links, biometrics, push notifications, navigation, CI/CD, and release management for a React Native superapp.",
+        "Developed features and caching strategies for a React payments app. Domain lead responsible for automated testing and code health."
+      ],
+      "company": "Super (Snapcommerce)",
+      "position": "Full Stack Engineer",
+      "startDate": "Jun 2021",
+      "endDate": "May 2022"
+    }
+  ],
+  "skills": [
+    {
+      "level": "",
+      "keywords": ["React, React Native, Next.js, Expo, Node.js"],
+      "name": "Tools"
+    },
+    {
+      "keywords": ["Web and Mobile Development, App Monitoring"],
+      "name": "Skills"
+    }
+  ],
+  "projects": [
+    {
+      "url": "https://github.com/venture/headless-shop",
+      "keywords": [null],
+      "name": "Express JWT",
+      "description": "Created a headless e-commerce store with Next.js and Sanity. Created scripts to deploy the build and deploy the app to Vercel."
+    }
+  ],
+  "awards": [
+    {
+      "title": "",
+      "date": "",
+      "awarder": "",
+      "summary": ""
+    }
+  ],
+  "sections": [
+    "templates",
+    "profile",
+    "work",
+    "skills",
+    "projects",
+    "awards",
+    "education"
+  ]
+}
